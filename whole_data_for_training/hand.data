@@ -1,0 +1,6 @@
+classes= 1
+train = a_a/hand_train_images_path.txt
+train = a_a/hand_test_images_path.txt
+names = a_a/hand.names
+backup = backup
+
