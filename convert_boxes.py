@@ -1,12 +1,9 @@
-import dlib
 import glob
-import cv2
 import os
 import sys
 import time
 import numpy as np
 import matplotlib.pyplot as plt
-import pyautogui as pyg
 import shutil
 
 
@@ -32,25 +29,31 @@ if not os.path.exists(train_labels_dir_path):
 IM_WIDTH = 640.0
 IM_HEIGHT = 480.0
 
+ff = open("aaa.txt", "w")
+
 for inx in image_indexes:
-    train_label_file = open(train_labels_dir_path + "/" + str(inx) + ".txt", "w")
-    test_label_file = open(test_labels_dir_path + "/" + str(inx) + ".txt", "w")
-    x = box_dict[inx][0]
-    y = box_dict[inx][1]
-    width = box_dict[inx][2] - x
-    height = box_dict[inx][3] - y
-    x_center = x + (width / 2)
-    y_center = y + (height / 2)
-    x_center_norm = float(x_center) / IM_WIDTH
-    y_center_norm = float(y_center) / IM_HEIGHT
-    width_norm = float(width) / IM_WIDTH
-    height_norm = float(height) / IM_HEIGHT
-    info_line = "0 " + str("{0:.6f}".format(x_center_norm)) \
-                + " " + str("{0:.6f}".format(y_center_norm)) \
-                + " " + str("{0:.6f}".format(width_norm)) \
-                + " " + str("{0:.6f}".format(height_norm))
-    print(info_line)
-    train_label_file.write(info_line)
-    test_label_file.write(info_line)
-    train_label_file.close()
-    test_label_file.close()
+    line_for_file = "/home/biba_bo/Documents/yolov3_tiny_train/darknet/whole_data_for_training/train_images/" + str(inx) + ".png\n"
+    ff.write(line_for_file)
+
+ff.close()
+    #train_label_file = open(train_labels_dir_path + "/" + str(inx) + ".txt", "w")
+    #test_label_file = open(test_labels_dir_path + "/" + str(inx) + ".txt", "w")
+    #x = box_dict[inx][0]
+    #y = box_dict[inx][1]
+    #width = box_dict[inx][2] - x
+    #height = box_dict[inx][3] - y
+    #x_center = x + (width / 2)
+    #y_center = y + (height / 2)
+    #x_center_norm = float(x_center) / IM_WIDTH
+    #y_center_norm = float(y_center) / IM_HEIGHT
+    #width_norm = float(width) / IM_WIDTH
+    #height_norm = float(height) / IM_HEIGHT
+    #info_line = "0 " + str("{0:.6f}".format(x_center_norm)) \
+    #            + " " + str("{0:.6f}".format(y_center_norm)) \
+    #            + " " + str("{0:.6f}".format(width_norm)) \
+    #            + " " + str("{0:.6f}".format(height_norm))
+    #print(info_line)
+    #train_label_file.write(info_line)
+    #test_label_file.write(info_line)
+    #train_label_file.close()
+    #test_label_file.close()
